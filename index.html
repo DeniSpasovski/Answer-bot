@@ -1,58 +1,66 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-<head>
-    <!--Read the source Luke!-->
-    <title>Answer bot</title>
-    <style type="text/css">
-        body, html
-        {
-            height: 100%;
-        }
-        .wrap
-        {
-            height: 80%;
-            overflow: auto;
-            max-height: 80%;
-            display: block;
-        }
-        .content
-        {
-            height: 100%;
-            display: table;
-            vertical-align: bottom;
-        }
-        .subcontent
-        {
-            display: table-cell;
-            vertical-align: bottom;
-        }
-        .answerbot-input
-        {
-            color: #1AA1E1;
-        }
-        .answerbot-ai
-        {
-            color: #CE5043;
-        }
-    </style>
-</head>
-<body>
-    <div style="width: 800px; height: 100%; margin: 0 auto;">
-        <div id="wrap" class="wrap">
-            <div class="content">
-                <div class="subcontent" id='subcontent'>
-                    <p class='answerbot-ai'>
-                        Don't be afraid, talk to me.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div>
-            <input type="text" name="inputtext" style="width: 100%;" onkeyup="keypressInput(this, event);"><br />
-        </div>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Answer-bot : JavaScript bot that tries to recognize input and answers your questions" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+	
+    <title>Answer-bot</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/denimf/Answer-bot">View on GitHub</a>
+
+          <h1 id="project_title">Answer-bot</h1>
+          <h2 id="project_tagline">JavaScript bot that tries to recognize input and answers your questions</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/denimf/Answer-bot/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/denimf/Answer-bot/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
     </div>
-    <script type="text/javascript" src="scripts.js"></script>
-    <script type="text/javascript" src="data.js"></script>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>This is a stupid JavaScript bot that recognizes the input and tries to answer the questions you have asked.
+Currently it doesn't have feature to learn from the input, but that is planned for some future versions.</p>
+		
+      </section>
+	   <section id="more_content" class="inner">
+			<div id="wrap" class="wrap">
+				<div class="content">
+					<div class="subcontent" id='subcontent'>
+						<p class='answerbot-ai'>
+							Don't be afraid, talk to me.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div>
+				<input type="text" name="inputtext" style="width: 100%;" onkeyup="keypressInput(this, event);"><br />
+			</div>
+      </section>
+	   
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Answer-bot maintained by <a href="https://github.com/denimf">denimf</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+	<script type="text/javascript" src="javascripts/scripts.js"></script>
+    <script type="text/javascript" src="javascripts/data.js"></script>
     <script type="text/javascript">
         var _answerBot = new answerBot();
         function keypressInput(sender, event) {
@@ -68,5 +76,17 @@
             objDiv.scrollTop = objDiv.scrollHeight;
         }
     </script>
-</body>
+    <script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		try {
+			var pageTracker = _gat._getTracker("UA-3067055-6");
+			pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+
+
+  </body>
 </html>
