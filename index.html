@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Answer bot</title>
+    <style type="text/css">
+        body, html
+        {
+            height: 100%;
+        }
+        .wrap
+        {
+            height: 80%;
+            overflow: auto;
+            max-height: 80%;
+            display: block;
+        }
+        .content
+        {
+            height: 100%;
+            display: table;
+            vertical-align: bottom;
+        }
+        .subcontent
+        {
+            display: table-cell;
+            vertical-align: bottom;
+        }
+        p.you
+        {
+            color:Blue;
+        }
+        p.ai
+        {
+            color:Red;
+        }
+    </style>
+    <script type="text/JavaScript" src="data.js"></script>
+    <script type="text/JavaScript" src="scripts.js"></script>
+    <script type="text/JavaScript">
+        function keypressInput(sender, event) {
+            if (event.which == 13) {
+                processInput(sender.value, document.getElementById('subcontent'));
+                sender.value = '';
+                correctScroll("wrap");
+            }
+        }
+        function correctScroll(elementId) {
+            var objDiv = document.getElementById(elementId);
+            objDiv.scrollTop = objDiv.scrollHeight;
+            
+        }
+    </script>
+</head>
+<body>
+    <div style="width: 800px; height: 100%; margin: 0 auto;">
+        <div id="wrap" class="wrap">
+            <div class="content">
+                <div class="subcontent" id='subcontent'>
+                </div>
+            </div>
+        </div>
+        <div>
+            <input type="text" name="inputtext" style="width: 100%;" onkeyup="keypressInput(this, event);"><br />
+        </div>
+    </div>
+</body>
+</html>
