@@ -4,31 +4,35 @@ function processInput(text, targetDiv) {
     text = text.replace(new RegExp("[ ]{2,}", 'g'), " ");
     var _words = text.toLowerCase().split(" ");
     var _answers = [];
+	var _title = "";
     if (_words.length == 0 || _words.toString() == '') { //if the input is empty
         _answers = SpecialContext['emptyInput'];
+		_title = SpecialContext['emptyInput'];
     } else {
         var _possibleAnswers = Findmatches(_words);
         if (_possibleAnswers.length == 0) { //if no answer found
-            _answers = SpecialContext['wrongInput']
+            _answers = SpecialContext['wrongInput'];
+			_title = SpecialContext['wrongInput'];
         }
         if (_possibleAnswers.length == 1) { //context recognized
             _answers = Content[_possibleAnswers[0]].values;
+			_title = Content[_possibleAnswers[0]].description;
         }
         if (_possibleAnswers.length > 1) {
-            WriteText(SpecialContext['rephrase'], targetDiv);
+            WriteText(SpecialContext['rephrase'], targetDiv, SpecialContext['rephrase']);
             for (var i = 0; i < _possibleAnswers.length; i++) {
-                WriteText(Content[_possibleAnswers[i]].Description, targetDiv);
+                WriteText(Content[_possibleAnswers[i]].description, targetDiv, Content[_possibleAnswers[i]].description);
             }
         }
     }
     if (_answers.length > 0) {
         var _rand = Math.floor((Math.random() - 0.001) * _answers.length);
-        WriteText(_answers[_rand], targetDiv);
+        WriteText(_answers[_rand], targetDiv, _title);
     }
 };
 
-function WriteText(text, targetDiv) {
-    targetDiv.innerHTML += "<p class='ai'>" + text + "</p>";
+function WriteText(text, targetDiv, title) {
+    targetDiv.innerHTML += "<p class='ai' title='" + title + "'>" + text + "</p>";
 }
 
 function Findmatches(words) {
