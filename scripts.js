@@ -2,6 +2,7 @@
 var answerBot = function () {
     var _this = this;
     _this.processInput = function (text) {
+		updateUrl(text);
         var _result = "<p class='answerbot-input'>" + text + "</p>";
         text = text.replace(new RegExp("[^a-zA-Z ]", "g"), " ");
         text = text.replace(new RegExp("[ ]{2,}", "g"), " ");
@@ -60,4 +61,10 @@ var answerBot = function () {
             return _possibleAnswers.indexOf(elem) == pos;
         });
     }
+	
+	function updateUrl(text){
+		history.pushState(null, null, "?question=" + encodeURIComponent(text));
+		if(typeof pageTracker != "undefined")//google analytics
+			pageTracker._trackPageview();
+	}
 };
