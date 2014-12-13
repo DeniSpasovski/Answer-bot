@@ -64,7 +64,7 @@ var answerBot = function () {
 	
 	function updateUrl(text){
 		history.pushState(null, null, "?question=" + encodeURIComponent(text));
-		if(typeof pageTracker != "undefined")//google analytics
-			pageTracker._trackPageview();
+		if(typeof ga === "function")//google analytics
+			ga('send', 'pageview', 'page path');
 	}
 };
