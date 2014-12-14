@@ -63,8 +63,8 @@ var answerBot = function () {
     }
 	
 	function updateUrl(text){
-		history.pushState(null, null, "?question=" + encodeURIComponent(text));
+		history.pushState(null, null, "#question=" + encodeURIComponent(text));
 		if(typeof ga === "function")//google analytics
-			ga('send', 'pageview');
+			ga('send', 'event', 'question', text);
 	}
 };
