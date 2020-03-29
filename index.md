@@ -1,0 +1,2 @@
+This is a stupid JavaScript bot that recognizes the input and tries to answer the questions you have asked.
+Currently it doesn't have feature to learn from the input, but that is planned for some future versions.
